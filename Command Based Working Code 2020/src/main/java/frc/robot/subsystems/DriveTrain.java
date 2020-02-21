@@ -12,12 +12,13 @@ import java.lang.reflect.Method;
 import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
+import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
 
 /**
  * Add your docs here.
  */
-public class DriveTrain extends Subsystem {
+public class DriveTrain extends SubsystemBase {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
 private WPI_VictorSPX frontRightVictor;
@@ -35,11 +36,13 @@ public void tankDrive(double leftSpeed, double rightSpeed) {
   m_myRobot.tankDrive(leftSpeed, rightSpeed);
   
 }
+  } 
 
-@Override
+/*@Override
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.
     // setDefaultCommand(new MySpecialCommand());
 
   }
 }
+*/

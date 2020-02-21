@@ -7,6 +7,8 @@
 
 package frc.robot;
 
+import java.util.function.DoubleSupplier;
+
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.XboxController;
 import frc.robot.commands.ExampleCommand;
@@ -28,9 +30,17 @@ public class RobotContainer {
   private final ExampleCommand m_autoCommand = new ExampleCommand(m_exampleSubsystem);
 
   private final DriveTrain driveTrain = new DriveTrain();
-  
-  
 
+  private DoubleSupplier leftSpeed;
+
+  private DoubleSupplier rightSpeed;
+  
+ /* public void RawTankDrive(DriveTrain chooChoo, DoubleSupplier leftSpeed, DoubleSupplier rightSpeed) {
+    driveTrain = chooChoo;
+    this.leftSpeed = leftSpeed;
+    this.rightSpeed = rightSpeed;
+  }
+*/
   /**
    * The container for the robot.  Contains subsystems, OI devices, and commands.
    */
@@ -38,8 +48,8 @@ public class RobotContainer {
     // Configure the button bindings
     configureButtonBindings();
 
-    driveTrain.setDefaultCommand(new RawTankDrive(driveTrain, () -> mStick.getY(), () -> mStick.getX() ));
-
+    driveTrain.setDefaultCommand(new RawTankDrive (driveTrain, () -> mStick.getRawAxis(0), () -> mStick.getRawAxis(1)));
+      
   }
 
   /**

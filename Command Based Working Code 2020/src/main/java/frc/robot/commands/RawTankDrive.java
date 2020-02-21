@@ -19,7 +19,9 @@ public class RawTankDrive extends CommandBase {
   private DriveTrain driveTrain;
   private DoubleSupplier leftSpeed;
   private DoubleSupplier rightSpeed;
-  public void RawTankDrive (DriveTrain chooChoo, DoubleSupplier leftSpeed, DoubleSupplier rightSpeed) {
+  //public RawTankDrive(DriveTrain driveTrain2, Object object, Object object2) {
+
+public RawTankDrive(DriveTrain chooChoo, DoubleSupplier leftSpeed, DoubleSupplier rightSpeed) {
     // Use addRequirements() here to declare subsystem dependencies.
     driveTrain = chooChoo;
     this.leftSpeed = leftSpeed;
