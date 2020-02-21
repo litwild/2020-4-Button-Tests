@@ -7,8 +7,6 @@
 
 package frc.robot.subsystems;
 
-import java.lang.reflect.Method;
-
 import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
@@ -31,12 +29,20 @@ public DriveTrain() {
   m_myRobot = new DifferentialDrive(frontLeftVictor, frontRightVictor);
 }
 
-public void tankDrive(double leftSpeed, double rightSpeed) {
-  
-  m_myRobot.tankDrive(leftSpeed, rightSpeed);
-  
-}
-  } 
+  public void tankDrive(double leftSpeed, double rightSpeed) {
+    
+    m_myRobot.tankDrive(leftSpeed, rightSpeed);
+    
+  }
+
+  public void staticDrive(double speed) {
+    m_myRobot.tankDrive(speed, speed); 
+  }
+
+  public void stop() {
+    m_myRobot.tankDrive(0, 0); 
+  }
+} 
 
 /*@Override
   public void initDefaultCommand() {
